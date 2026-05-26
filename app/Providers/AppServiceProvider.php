@@ -25,5 +25,9 @@ class AppServiceProvider extends ServiceProvider
             \SocialiteProviders\Manager\SocialiteWasCalled::class,
             \SocialiteProviders\Azure\AzureExtendSocialite::class . '@handle'
         );
+
+         if (config('app.env') === 'production') {
+        URL::forceScheme('https');
+    }
     }
 }
